@@ -302,6 +302,7 @@ class WC_Meta_Box_Order_Data
 				 */
 				do_action('woocommerce_admin_order_data_after_payment_info', $order);
 				?>
+				<!-- close shipping -->
 				<div class="order_data_column_container" style="display: flex; justify-content: space-between;">
 					<div class="order_data_column">
 						<h3><?php esc_html_e('General', 'woocommerce'); ?></h3>
@@ -677,6 +678,7 @@ class WC_Meta_Box_Order_Data
 						<?php do_action('woocommerce_admin_order_data_after_shipping_address', $order); // phpcs:ignore WooCommerce.Commenting.CommentHooks.MissingHookComment ?>
 					</div> -->
 				</div>
+				<!--end close shipping  -->
 				<div class="clear"></div>
 			</div>
 		</div>
