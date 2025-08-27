@@ -10,6 +10,7 @@ function addQtyButtons() {
     wrapper.style.display = "flex";
     wrapper.style.alignItems = "center";
     wrapper.style.gap = "4px";
+    wrapper.style.justifyContent = "center";
 
     const btnMinus = document.createElement("button");
     btnMinus.type = "button";

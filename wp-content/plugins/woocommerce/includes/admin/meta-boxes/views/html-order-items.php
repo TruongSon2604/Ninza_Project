@@ -450,16 +450,24 @@ if (wc_tax_enabled()) {
 				<article>
 					<form action="" method="post">
 						<table class="widefat">
-							<thead>
-								<tr>
-									<th><?php esc_html_e('Product', 'woocommerce'); ?></th>
-									<th><?php esc_html_e('License', 'woocommerce'); ?></th>
-								</tr>
-							</thead>
+						<thead>
+							<tr>
+								<th style="text-align:center;"><?php esc_html_e('Product', 'woocommerce'); ?></th>
+								<th style="text-align:center;"><?php esc_html_e('Original', 'woocommerce'); ?></th>
+								<th style="text-align:center;"><?php esc_html_e('Sales', 'woocommerce'); ?></th>
+								<th style="display:flex;justify-content: center;"><?php esc_html_e('License', 'woocommerce'); ?></th>
+							</tr>
+						</thead>
 							<?php
 							$row = '
-									<td><select class="wc-product-search" name="item_id" data-allow_clear="true" data-display_stock="true" data-exclude_type="variable" data-placeholder="' . esc_attr__('Search for a product&hellip;', 'woocommerce') . '"></select></td>
-									<td><input type="number" step="1" min="0" max="9999" autocomplete="off" name="item_qty" placeholder="1" size="4" class="quantity" /></td>';
+							<td>
+								<select class="wc-product-search" name="item_id" data-allow_clear="true" data-display_stock="true" data-exclude_type="variable" data-placeholder="' . esc_attr__('Search for a product&hellip;', 'woocommerce') . '"></select>
+							</td>
+							<td class="wc-product-search-original" style="text-align:center;"></td>
+							<td class="wc-product-search-sales" style="text-align:center;"></td>
+							<td style="text-align:center;">
+								<input type="number" step="1" min="0" max="9999" autocomplete="off" name="item_qty" placeholder="1" size="4" class="quantity" />
+							</td>';
 							?>
 							<tbody data-row="<?php echo esc_attr($row); ?>">
 								<tr>
@@ -518,10 +526,10 @@ if (wc_tax_enabled()) {
 						?>
 						</table>
 						<?php if (absint($wpdb->get_var("SELECT COUNT(tax_rate_id) FROM {$wpdb->prefix}woocommerce_tax_rates;")) > 100): ?>
-										<p>
-											<label for="manual_tax_rate_id"><?php esc_html_e('Or, enter tax rate ID:', 'woocommerce'); ?></label><br/>
-											<input type="number" name="manual_tax_rate_id" id="manual_tax_rate_id" step="1" placeholder="<?php esc_attr_e('Optional', 'woocommerce'); ?>" />
-										</p>
+																									<p>
+																										<label for="manual_tax_rate_id"><?php esc_html_e('Or, enter tax rate ID:', 'woocommerce'); ?></label><br/>
+																										<input type="number" name="manual_tax_rate_id" id="manual_tax_rate_id" step="1" placeholder="<?php esc_attr_e('Optional', 'woocommerce'); ?>" />
+																									</p>
 						<?php endif; ?>
 					</form>
 				</article>
